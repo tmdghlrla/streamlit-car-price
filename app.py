@@ -6,6 +6,7 @@ from app_eda import run_eda_app
 from app_ml import run_ml_app
 
 def main() :
+    st.set_page_config(layout='wide')
     st. title('자동차 가격 예측 대시보드')
     menu = ['Home', 'EDA', 'ML']
 
