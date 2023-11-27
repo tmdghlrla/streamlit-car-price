@@ -20,7 +20,7 @@ def run_ml_app() :
     age = st.number_input('나이 입력', min_value=20, max_value=100)
     salary = st.number_input('연봉 입력', min_value=1000, max_value=1000000)
     debt = st.number_input('카드빚 입력', min_value=0, max_value=100000)
-    worth = st.number_input('자산 입력', min_value=1000, max_value=1000000)
+    worth = st.number_input('자산 입력', min_value=0, max_value=1000000)
     
     
     prediction = np.array([gender, age, salary, debt, worth])
@@ -30,9 +30,9 @@ def run_ml_app() :
     if st.button('구매 예상 금액 예측') :
         # 예측한 결과를 화면에 보여준다.
         if y_pred <= 0 :
-            st.text('당신은 차를 구매하면 안됩니다.')
+            st.text('차를 구매하는 것을 추천하지 않습니다.')
         elif y_pred > 0 :
-            st.text("구매 예상 금액은 " + str(y_pred))
+            st.text("구매 예상 금액은 " + str("{:.2f}".format(y_pred)) + " 달러 입니다." )
         
     else :
         st.text('')
